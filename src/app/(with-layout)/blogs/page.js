@@ -1,5 +1,6 @@
 /** @format */
 
+import loadBlogData from "@/utils/loadBlogData";
 import Link from "next/link";
 
 export const metadata = {
@@ -39,10 +40,7 @@ const blogItems = [
 ];
 
 const BlogsPage = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
-    cache: "force-cache",
-  });
-  const blogs = await res.json();
+  const blogs = await loadBlogData();
 
   return (
     <div>
